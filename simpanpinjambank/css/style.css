@@ -4,12 +4,12 @@ html {
 
 body {
 	margin-bottom: 100px;
-	margin-top: 30px
+	margin-top: 30px;
 }
 
 .jumbotron {
 	height: 400px;
-	background-image: url('../img/3.png' );
+	background-image: url('../img/5.jpg' );
 	background-size: cover;
 	background-attachment: fixed;
 	color: #eaeaea;

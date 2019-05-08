@@ -1,0 +1,18 @@
+body{
+	background-image: url(../img/5.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+h3 {
+	color: #190FE5;
+}
+
+h5 {
+	color: #0AF410;
+}
+
+.form {
+	box-sizing: border-box;
+}

@@ -4,9 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Web | Simpan Pinjam</title>
+    <title>Web | Pinjam Uang</title>
 
     <!-- Bootstrap -->
+    <link rel="icon" type="image/png" href="img/7.png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
@@ -29,7 +30,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-         <a href="#home" class="navbar-brand page-scroll">Situs Simpan Pinjam</a>
+         <a href="#home" class="navbar-brand page-scroll">Situs Pinjam Uang</a>
        </div>
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,10 +47,16 @@
     </nav>
 
     <!-- akhir navbar -->
+
+    <!-- info alert -->
+    <script>
+      alert ('Selamat datang di Web Kami Klik Oke Untuk Memasuki Website');
+    </script>>
+    <!-- akhir alert -->
     
     <!-- jumbotron -->
     <div class="jumbotron text-center">
-      <h1>Situs Simpan Pinjam</h1>
+      <h1>Situs Peminjaman Uang</h1>
       <p>Online Terpercaya</p>
     </div>
     <!-- akhir jumbotron -->
