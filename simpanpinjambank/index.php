@@ -19,7 +19,6 @@
     <![endif]-->
   </head>
   <body>
-<body">
     <!-- navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -30,13 +29,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-         <a href="#home" class="navbar-brand page-scroll">Situs Pinjam Uang</a>
+         <a href="#home">
+          <img src="img/g.png" width="50" height="50" class="d-inline-block align-top" alt="">Situs Pinjam Uang</a>
        </div>
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
           <li><a href="#about" class="page-scroll">About</a></li>
-           <li><a href="register.php">klik untuk peminjaman</a></li>
+           <li><a href="login.php">Login</a></li>
 
            </ul>
                        

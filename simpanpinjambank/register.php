@@ -3,15 +3,19 @@
 
     if (isset($_POST['Register'])) {
         $jumlahpinjaman = $_POST['jumlah_pinjaman'];
-        if ($jumlahpinjaman > 5000000) : ?>
-            <script>
-                alert('Peminjaman maksimal sebesar 5 juta rupiah!');
-                window.location.href = "register.php";
-            </script>
+        $query ="SELECT * FROM bank";
+        $bank = mysqli_fetch_assoc(mysqli_query($db,$query))['jumlah_uang'];
 
-        <?php
-        exit;
-        endif;
+        if ($jumlahpinjaman > $bank) {
+            echo "<script>alert('Peminjaman tidak bisa di konfirmasi karna saldo bank tidak cukup!'); window.location.href = 'register.php';</script>";
+            die;
+
+        }
+        if ($jumlahpinjaman > 10000000) {
+           echo "<script>alert('Peminjaman maksimal 10 jutah rupiah!'); window.location.href = 'register.php';</script>";
+            die;
+
+        }
         $Nama = $_POST['name'];
         $alamat_lengkap = $_POST['alamat_lengkap'];
         $email = $_POST['email'];
@@ -24,6 +28,7 @@
         $Umur = $_POST['Umur'];
         $jenis_kelamin = $_POST['jenis_kelamin'];
         
+        $jumlah_uang = mysqli_fetch_assoc(mysqli_query($db, "SELECT jumlah_uang FROM bank"))['jumlah_uang'] - $jumlah_pinjaman;
         $query = "INSERT INTO user VALUES('','$Nama',
                                                         '$alamat_lengkap',
                                                         '$email',
@@ -35,11 +40,13 @@
                                                          '$Kota',
                                                          $Umur,
                                                          '$jenis_kelamin')";
-                $q = mysqli_query($db, $query );
+        $q = mysqli_query($db, $query);
+        $query = "UPDATE bank SET jumlah_uang = $jumlah_uang";
+         $q = mysqli_query($db, $query);
         if ($q) : ?>
             <script>
-                alert('Peminjaman dikonfirmasi untuk proses selanjutnya silahkan cek Email!');
-                window.location.href = "index.php";
+                alert('Peminjaman Berhasil dikonfirmasi untuk proses selanjutnya silahkan cek Email!');
+                window.location.href = "register.php";
 
             </script>
         <?php endif; 
@@ -62,11 +69,43 @@
     <link rel="stylesheet" type="text/css" href="css_register/style.css">
 </head>
 <body >
-<br> 
+
+<?php 
+	session_start();
+ 
+	// cek apakah yang mengakses halaman ini sudah login
+	if($_SESSION['level']==""){
+		header("location:index.php?pesan=gagal");
+	}
+ 
+	?>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only" Toggle navigation></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a href="#home" class="navbar-brand page-scroll">Formulir Peminjaman</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="logout.php">Logout</a></li>
+
+                </ul>
+                            
+            </div>
+
+
+            </div>
+            </nav>
+<br><br>
 <div class="container mt-5">
     <div class="row">
         <div class="col">
-            <p style="color: white;">&larr; <a href="index.php" style="color: white;">Home</a> </p>
 
             <h3>Silahkan isi data di bawah ini...</h3>
             <h5>Untuk melakukan peminjaman<h5>

@@ -7,10 +7,12 @@ body {
 	margin-top: 30px;
 }
 
+
 .jumbotron {
 	height: 400px;
-	background-image: url('../img/5.jpg' );
+	background-image: url('../img/b.jpg' );
 	background-size: cover;
+	background-position: center;
 	background-attachment: fixed;
 	color: #eaeaea;
 
@@ -25,6 +27,7 @@ body {
 
 .jumbotron h1, .jumbotron p {
 	text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	color:#FBFAF6;
 }
 
 hr {
